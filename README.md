@@ -156,11 +156,11 @@ Manipulate ***claiflow*** resources using the REST API for Kubernetes automation
 
 1. More information about the APIs can be found on the Swagger page.
 
-    [swagger/index.html](http://localhost:8099/swagger/index.html)
+    [http://localhost:8099/swagger/index.html](http://localhost:8099/swagger/index.html)
 
 1. You can access the metric information for the server in Prometheus metric format.
 
-    [metrics](http://localhost:8099/metrics)
+    [http://localhost:8099/metrics](http://localhost:8099/metrics)
 
 1. Kubernetes version compatibility
 
