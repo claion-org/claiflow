@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package pkg.server.api.client;
+option go_package = "github.com/claion-org/claiflow/pkg/server/api/client";
+
+import "google/protobuf/timestamp.proto";
+
+message UpdateServiceStatusRequest_v1 {
+        string uuid = 1;
+        int32 sequence = 2;
+        int32 status = 3;
+        string result = 4;
+        google.protobuf.Timestamp started = 5;
+        google.protobuf.Timestamp ended = 6;
+        string error = 7;
+}
+
+message UpdateServiceStatusResponse_v1 {}

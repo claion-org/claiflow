@@ -1,0 +1,35 @@
+@protover = HTTP/1.1
+@protocol = http
+@hostname = localhost
+@port     = 8099
+@url      = {{protocol}}://{{hostname}}:{{port}}/api/v1
+
+@date = {{$datetime "YYYY-MM-DDThh:mm:ss"}}Z
+
+# CREATE CLUSTER (with rand UUID)
+# @name createCluster
+@cluster_name = test cluster rand uuid
+@cluster_summary = test data
+POST {{url}}/cluster {{protover}}
+Content-Type: application/json
+
+{
+  "name": "{{ cluster_name }}",
+  "summary": "{{ cluster_summary }}"
+}
+
+###
+@createClusterUUID = {{createCluster.response.body.$.uuid}}
+
+
+# @name getCluster
+GET {{url}}/cluster/{{createClusterUUID}} {{protover}}
+
+###
+
+
+# @name deleteCluster
+DELETE {{url}}/cluster/{{createClusterUUID}} {{protover}}
+
+###
+

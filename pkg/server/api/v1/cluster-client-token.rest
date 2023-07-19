@@ -1,0 +1,39 @@
+@protover = HTTP/1.1
+@protocol = http
+@hostname = localhost
+@port     = 8099
+@url      = {{protocol}}://{{hostname}}:{{port}}/api/v1
+
+@date = {{$datetime "YYYY-MM-DDThh:mm:ss"}}Z
+
+# @name createClusterClientToken
+@cluster_uuid = 00000000000000000000000000000000
+@cluster_client_token_uuid = 00000000000000000000000000000001
+@cluster_client_token_name = test cluster client token
+@cluster_client_token_summary = test cluster client token summary
+@cluster_client_token_token = test_token
+POST {{url}}/cluster_token {{protover}}
+Content-Type: application/json
+
+{
+  "cluster_uuid": "{{ cluster_uuid }}",
+  "uuid": "{{ cluster_client_token_uuid }}",
+  "name": "{{ cluster_client_token_name }}",
+  "summary": "{{ cluster_client_token_summary }}",
+  "token": "{{ cluster_client_token_token }}"
+}
+
+###
+
+
+# @name getClusterClientToken
+GET {{url}}/cluster_token/{{cluster_client_token_uuid}} {{protover}}
+
+###
+
+
+# @name deleteClusterClientToken
+DELETE {{url}}/cluster_token/{{cluster_client_token_uuid}} {{protover}}
+
+###
+

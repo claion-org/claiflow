@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: claiflowclient
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: claiflowclient-configmap
+  namespace: claiflowclient
+data:
+  server: "localhost:18099"
+  clusteruuid: "cluster-uuid"
+  token: "cluster-token"

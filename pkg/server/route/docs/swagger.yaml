@@ -1,0 +1,1144 @@
+definitions:
+  client.Auth:
+    properties:
+      assertion:
+        type: string
+      client_lib_version:
+        type: string
+      client_version:
+        type: string
+      cluster_uuid:
+        type: string
+    type: object
+  client.ServiceResponse:
+    properties:
+      cluster_uuid:
+        type: string
+      created:
+        type: string
+      flow:
+        type: string
+      inputs:
+        type: object
+      name:
+        type: string
+      priority:
+        type: integer
+      step_max:
+        type: integer
+      subscribed_channel:
+        type: string
+      summary:
+        type: string
+      template_uuid:
+        type: string
+      uuid:
+        type: string
+    type: object
+  client.ServiceStatus:
+    properties:
+      ended:
+        type: string
+      error:
+        type: string
+      result:
+        type: string
+      sequence:
+        type: integer
+      started:
+        type: string
+      status:
+        type: integer
+      uuid:
+        type: string
+    type: object
+  cluster.Cluster:
+    properties:
+      created:
+        type: string
+      name:
+        type: string
+      summary:
+        type: string
+      updated:
+        type: string
+      uuid:
+        type: string
+    type: object
+  cluster.ClusterClientSessionStatus:
+    properties:
+      alive:
+        type: boolean
+      clientLibVersion:
+        type: string
+      clientVersion:
+        type: string
+    type: object
+  cluster.Create:
+    properties:
+      name:
+        type: string
+      summary:
+        description: (optional)
+        type: string
+      uuid:
+        description: (optional)
+        type: string
+    type: object
+  cluster.Update:
+    properties:
+      name:
+        description: (optional)
+        type: string
+      summary:
+        description: (optional)
+        type: string
+    type: object
+  cluster_client_session.ClusterClientSession:
+    properties:
+      cluster_uuid:
+        type: string
+      created:
+        type: string
+      deleted:
+        type: string
+      expiration_time:
+        type: string
+      id:
+        type: integer
+      issued_at_time:
+        type: string
+      token:
+        type: string
+      updated:
+        type: string
+      uuid:
+        type: string
+    type: object
+  cluster_client_token.ClusterClientToken:
+    properties:
+      cluster_uuid:
+        type: string
+      created:
+        type: string
+      expiration_time:
+        type: string
+      issued_at_time:
+        type: string
+      name:
+        type: string
+      summary:
+        type: string
+      token:
+        type: string
+      updated:
+        type: string
+      uuid:
+        type: string
+    type: object
+  cluster_client_token.Create:
+    properties:
+      cluster_uuid:
+        type: string
+      name:
+        type: string
+      summary:
+        description: (optional)
+        type: string
+      token:
+        description: (optional)
+        type: string
+      uuid:
+        description: (optional)
+        type: string
+    type: object
+  cluster_client_token.Update:
+    properties:
+      expiration_time:
+        description: (optional)
+        type: string
+      issued_at_time:
+        description: (optional)
+        type: string
+      name:
+        description: (optional)
+        type: string
+      summary:
+        description: (optional)
+        type: string
+      token:
+        description: (optional)
+        type: string
+    type: object
+  global_variables.GlobalVariable:
+    properties:
+      created:
+        type: string
+      name:
+        type: string
+      summary:
+        description: (optional)
+        type: string
+      updated:
+        type: string
+      uuid:
+        type: string
+      value:
+        type: string
+    type: object
+  global_variables.UpdateValue:
+    properties:
+      value:
+        description: (optional)
+        type: string
+    type: object
+  service.Create:
+    properties:
+      inputs:
+        $ref: '#/definitions/service.Object'
+      name:
+        type: string
+      subscribed_channel:
+        type: string
+      summary:
+        type: string
+      template_uuid:
+        type: string
+      uuid:
+        description: (optional)
+        type: string
+    type: object
+  service.Object:
+    additionalProperties: {}
+    type: object
+  service.ResultResponse:
+    properties:
+      created:
+        type: string
+      result:
+        type: string
+      save_type:
+        type: integer
+    type: object
+  service.ServiceResponse:
+    properties:
+      cluster_uuid:
+        type: string
+      created:
+        type: string
+      flow:
+        type: string
+      inputs:
+        type: object
+      name:
+        type: string
+      priority:
+        type: integer
+      results:
+        items:
+          $ref: '#/definitions/service.ResultResponse'
+        type: array
+      statuses:
+        items:
+          $ref: '#/definitions/service.StatusResponse'
+        type: array
+      step_max:
+        type: integer
+      subscribed_channel:
+        type: string
+      summary:
+        type: string
+      template_uuid:
+        type: string
+      uuid:
+        type: string
+    type: object
+  service.StatusResponse:
+    properties:
+      created:
+        type: string
+      ended:
+        type: string
+      message:
+        type: string
+      started:
+        type: string
+      status:
+        type: integer
+      step_seq:
+        type: integer
+    type: object
+  webhook.Create:
+    properties:
+      conditionFilter:
+        description: (optional)
+        type: string
+      conditionValidator:
+        description: (optional)
+        type: string
+      headers:
+        $ref: '#/definitions/webhook.Header'
+        description: (optional)
+      method:
+        type: string
+      name:
+        type: string
+      summary:
+        description: (optional)
+        type: string
+      timeout:
+        description: (optional)
+        type: string
+      url:
+        type: string
+      uuid:
+        description: (optional)
+        type: string
+    type: object
+  webhook.Header:
+    additionalProperties:
+      items:
+        type: string
+      type: array
+    type: object
+  webhook.Update:
+    properties:
+      conditionFilter:
+        description: (optional)
+        type: string
+      conditionValidator:
+        description: (optional)
+        type: string
+      headers:
+        $ref: '#/definitions/webhook.Header'
+        description: (optional)
+      method:
+        description: (optional)
+        type: string
+      name:
+        description: (optional)
+        type: string
+      summary:
+        description: (optional)
+        type: string
+      timeout:
+        description: (optional)
+        type: string
+      url:
+        description: (optional)
+        type: string
+    type: object
+  webhook.Webhook:
+    properties:
+      conditionFilter:
+        type: string
+      conditionValidator:
+        type: string
+      created:
+        type: string
+      headers:
+        type: object
+      method:
+        type: string
+      name:
+        type: string
+      summary:
+        type: string
+      timeout:
+        type: string
+      updated:
+        type: string
+      url:
+        type: string
+      uuid:
+        type: string
+    type: object
+info:
+  contact:
+    email: jaehoon@claion.co.kr
+    url: https://claion.co.kr
+  description: this is a claiflow server.
+  title: CLAIFLOW
+  version: 0.0.1
+paths:
+  /api/v1/client/auth:
+    post:
+      consumes:
+      - application/json
+      description: auth client
+      parameters:
+      - description: Auth
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/client.Auth'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          headers:
+            AccessTokenResponse:
+              type: object
+            x-sudory-client-token:
+              type: string
+          schema:
+            type: string
+      tags:
+      - /api/v1/client
+  /api/v1/client/service:
+    get:
+      consumes:
+      - application/json
+      description: get []Service
+      parameters:
+      - description: count limit of ServiceResponse
+        in: query
+        name: limit
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/client.ServiceResponse'
+            type: array
+      security:
+      - ClientAuthorization: []
+      tags:
+      - /api/v1/client
+    put:
+      consumes:
+      - application/json
+      description: update a service status
+      parameters:
+      - description: ServiceStatus
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/client.ServiceStatus'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+      security:
+      - ClientAuthorization: []
+      tags:
+      - /api/v1/client
+  /api/v1/cluster:
+    get:
+      consumes:
+      - application/x-www-form-urlencoded
+      description: Find clusters
+      parameters:
+      - description: query  github.com/claion-org/claiflow/pkg/server/database/vanilla/stmt/README.md
+        in: query
+        name: q
+        type: string
+      - description: order  github.com/claion-org/claiflow/pkg/server/database/vanilla/stmt/README.md
+        in: query
+        name: o
+        type: string
+      - description: paging github.com/claion-org/claiflow/pkg/server/database/vanilla/stmt/README.md
+        in: query
+        name: p
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/cluster.Cluster'
+            type: array
+      tags:
+      - /api/v1/cluster
+    post:
+      consumes:
+      - application/json
+      description: Create a cluster
+      parameters:
+      - description: Create
+        in: body
+        name: cluster
+        required: true
+        schema:
+          $ref: '#/definitions/cluster.Create'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/cluster.Cluster'
+      tags:
+      - /api/v1/cluster
+  /api/v1/cluster/{cluster_uuid}/service:
+    post:
+      consumes:
+      - application/json
+      description: Create a Service
+      parameters:
+      - description: cluster UUID
+        in: path
+        name: cluster_uuid
+        required: true
+        type: string
+      - description: Create
+        in: body
+        name: service
+        required: true
+        schema:
+          $ref: '#/definitions/service.Create'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/service.ServiceResponse'
+            type: array
+      tags:
+      - /api/v1/service
+  /api/v1/cluster/{cluster_uuid}/service/{uuid}:
+    get:
+      consumes:
+      - application/json
+      description: Get a Service
+      parameters:
+      - description: cluster UUID
+        in: path
+        name: cluster_uuid
+        required: true
+        type: string
+      - description: service UUID
+        in: path
+        name: uuid
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/service.ServiceResponse'
+      tags:
+      - /api/v1/service
+  /api/v1/cluster/{cluster_uuid}/service/{uuid}/result:
+    get:
+      consumes:
+      - application/json
+      description: Get a Service Result
+      parameters:
+      - description: cluster UUID
+        in: path
+        name: cluster_uuid
+        required: true
+        type: string
+      - description: service UUID
+        in: path
+        name: uuid
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/service.ResultResponse'
+      tags:
+      - /api/v1/service
+  /api/v1/cluster/{cluster_uuid}/session/alive:
+    get:
+      consumes:
+      - application/json
+      description: Check Alive a Cluster Client Session
+      parameters:
+      - description: Cluster UUID
+        in: path
+        name: cluster_uuid
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/cluster.ClusterClientSessionStatus'
+      tags:
+      - /api/v1/cluster
+  /api/v1/cluster/{uuid}:
+    delete:
+      consumes:
+      - application/json
+      description: Delete a cluster
+      parameters:
+      - description: Cluster UUID
+        in: path
+        name: uuid
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+      tags:
+      - /api/v1/cluster
+    get:
+      consumes:
+      - application/json
+      description: Get a cluster
+      parameters:
+      - description: Cluster UUID
+        in: path
+        name: uuid
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/cluster.Cluster'
+      tags:
+      - /api/v1/cluster
+    put:
+      consumes:
+      - application/json
+      description: Update a cluster
+      parameters:
+      - description: Cluster UUID
+        in: path
+        name: uuid
+        required: true
+        type: string
+      - description: Update
+        in: body
+        name: cluster
+        required: true
+        schema:
+          $ref: '#/definitions/cluster.Update'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/cluster.Cluster'
+      tags:
+      - /api/v1/cluster
+  /api/v1/cluster_token:
+    get:
+      consumes:
+      - application/x-www-form-urlencoded
+      description: Find Cluster Client Tokens
+      parameters:
+      - description: query  github.com/claion-org/claiflow/pkg/server/database/vanilla/stmt/README.md
+        in: query
+        name: q
+        type: string
+      - description: order  github.com/claion-org/claiflow/pkg/server/database/vanilla/stmt/README.md
+        in: query
+        name: o
+        type: string
+      - description: paging github.com/claion-org/claiflow/pkg/server/database/vanilla/stmt/README.md
+        in: query
+        name: p
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/cluster_client_token.ClusterClientToken'
+            type: array
+      tags:
+      - /api/v1/cluster_token
+    post:
+      consumes:
+      - application/json
+      description: Create a Cluster Client Token
+      parameters:
+      - description: Create
+        in: body
+        name: object
+        required: true
+        schema:
+          $ref: '#/definitions/cluster_client_token.Create'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/cluster_client_token.ClusterClientToken'
+      tags:
+      - /api/v1/cluster_token
+  /api/v1/cluster_token/{uuid}:
+    delete:
+      consumes:
+      - application/json
+      description: Delete a Cluster Client Token
+      parameters:
+      - description: ClusterClientToken UUID
+        in: path
+        name: uuid
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+      tags:
+      - /api/v1/cluster_token
+    get:
+      consumes:
+      - application/json
+      description: Get a Cluster Client Token
+      parameters:
+      - description: ClusterClientToken Uuid
+        in: path
+        name: uuid
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/cluster_client_token.ClusterClientToken'
+      tags:
+      - /api/v1/cluster_token
+    put:
+      consumes:
+      - application/json
+      description: Update a Cluster Client Token
+      parameters:
+      - description: ClusterClientToken UUID
+        in: path
+        name: uuid
+        required: true
+        type: string
+      - description: Update
+        in: body
+        name: object
+        required: true
+        schema:
+          $ref: '#/definitions/cluster_client_token.Update'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/cluster_client_token.ClusterClientToken'
+      tags:
+      - /api/v1/cluster_token
+  /api/v1/cluster_token/{uuid}/expire:
+    put:
+      consumes:
+      - application/json
+      description: Expire a Cluster Client Token
+      parameters:
+      - description: ClusterClientToken UUID
+        in: path
+        name: uuid
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/cluster_client_token.ClusterClientToken'
+      tags:
+      - /api/v1/cluster_token
+  /api/v1/cluster_token/{uuid}/refresh:
+    put:
+      consumes:
+      - application/json
+      description: Refresh Time of a Cluster Client Token
+      parameters:
+      - description: ClusterClientToken UUID
+        in: path
+        name: uuid
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/cluster_client_token.ClusterClientToken'
+      tags:
+      - /api/v1/cluster_token
+  /api/v1/global_variables:
+    get:
+      consumes:
+      - application/x-www-form-urlencoded
+      description: Find GlobalVariables
+      parameters:
+      - description: query  github.com/claion-org/claiflow/pkg/server/database/vanilla/stmt/README.md
+        in: query
+        name: q
+        type: string
+      - description: order  github.com/claion-org/claiflow/pkg/server/database/vanilla/stmt/README.md
+        in: query
+        name: o
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/global_variables.GlobalVariable'
+            type: array
+      tags:
+      - /api/v1/global_variables
+  /api/v1/global_variables/{uuid}:
+    get:
+      consumes:
+      - application/json
+      description: Get a GlobalVariable
+      parameters:
+      - description: GlobalVariable UUID
+        in: path
+        name: uuid
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/global_variables.GlobalVariable'
+      tags:
+      - /api/v1/global_variables
+    put:
+      consumes:
+      - application/json
+      description: Update GlobalVariable Value
+      parameters:
+      - description: GlobalVariable UUID
+        in: path
+        name: uuid
+        required: true
+        type: string
+      - description: UpdateValue
+        in: body
+        name: enviroment
+        required: true
+        schema:
+          $ref: '#/definitions/global_variables.UpdateValue'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/global_variables.GlobalVariable'
+      tags:
+      - /api/v1/global_variables
+  /api/v1/service:
+    get:
+      consumes:
+      - application/x-www-form-urlencoded
+      description: Find Services
+      parameters:
+      - description: query  github.com/claion-org/claiflow/pkg/server/database/vanilla/stmt/README.md
+        in: query
+        name: q
+        type: string
+      - description: order  github.com/claion-org/claiflow/pkg/server/database/vanilla/stmt/README.md
+        in: query
+        name: o
+        type: string
+      - description: paging github.com/claion-org/claiflow/pkg/server/database/vanilla/stmt/README.md
+        in: query
+        name: p
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/service.ServiceResponse'
+            type: array
+      tags:
+      - /api/v1/service
+    post:
+      consumes:
+      - application/json
+      description: Create a Service (Multi Clusters)
+      parameters:
+      - description: Create
+        in: body
+        name: service
+        required: true
+        schema:
+          $ref: '#/definitions/service.Create'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/service.ServiceResponse'
+            type: array
+      tags:
+      - /api/v1/service
+  /api/v1/session:
+    get:
+      consumes:
+      - application/x-www-form-urlencoded
+      description: Find Cluster Client Sessions
+      parameters:
+      - description: query  github.com/claion-org/claiflow/pkg/database/vanilla/stmt/README.md
+        in: query
+        name: q
+        type: string
+      - description: order  github.com/claion-org/claiflow/pkg/database/vanilla/stmt/README.md
+        in: query
+        name: o
+        type: string
+      - description: paging github.com/claion-org/claiflow/pkg/database/vanilla/stmt/README.md
+        in: query
+        name: p
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/cluster_client_session.ClusterClientSession'
+            type: array
+      tags:
+      - /api/v1/session
+  /api/v1/session/{uuid}:
+    delete:
+      consumes:
+      - application/json
+      description: Delete a Cluster Client Session
+      parameters:
+      - description: ClusterClientSession UUID
+        in: path
+        name: uuid
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+      tags:
+      - /api/v1/session
+    get:
+      consumes:
+      - application/json
+      description: Get a Cluster Client Session
+      parameters:
+      - description: ClusterClientSession UUID
+        in: path
+        name: uuid
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/cluster_client_session.ClusterClientSession'
+      tags:
+      - /api/v1/session
+  /api/v1/session/alive:
+    get:
+      consumes:
+      - application/json
+      deprecated: true
+      description: Check Alive a Cluster Client Session
+      parameters:
+      - description: Cluster UUID
+        in: path
+        name: cluster_uuid
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/cluster.ClusterClientSessionStatus'
+      tags:
+      - /api/v1/session
+  /api/v1/webhook:
+    get:
+      consumes:
+      - application/x-www-form-urlencoded
+      description: Find webhooks
+      parameters:
+      - description: query  github.com/claion-org/claiflow/pkg/server/database/vanilla/stmt/README.md
+        in: query
+        name: q
+        type: string
+      - description: order  github.com/claion-org/claiflow/pkg/server/database/vanilla/stmt/README.md
+        in: query
+        name: o
+        type: string
+      - description: paging github.com/claion-org/claiflow/pkg/server/database/vanilla/stmt/README.md
+        in: query
+        name: p
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/webhook.Webhook'
+            type: array
+      tags:
+      - /api/v1/webhook
+    post:
+      consumes:
+      - application/json
+      description: Create a webhook
+      parameters:
+      - description: Create
+        in: body
+        name: webhook
+        required: true
+        schema:
+          $ref: '#/definitions/webhook.Create'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/webhook.Webhook'
+      tags:
+      - /api/v1/webhook
+  /api/v1/webhook/{uuid}:
+    delete:
+      consumes:
+      - application/json
+      description: Delete a webhook
+      parameters:
+      - description: Webhook UUID
+        in: path
+        name: uuid
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+      tags:
+      - /api/v1/webhook
+    get:
+      consumes:
+      - application/json
+      description: Get a webhook
+      parameters:
+      - description: webhook UUID
+        in: path
+        name: uuid
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/webhook.Webhook'
+      tags:
+      - /api/v1/webhook
+    put:
+      consumes:
+      - application/json
+      description: Update a webhook
+      parameters:
+      - description: Webhook UUID
+        in: path
+        name: uuid
+        required: true
+        type: string
+      - description: Update
+        in: body
+        name: webhook
+        required: true
+        schema:
+          $ref: '#/definitions/webhook.Update'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/webhook.Webhook'
+      tags:
+      - /api/v1/webhook
+  /api/v1/webhook/{uuid}/publish:
+    post:
+      consumes:
+      - application/json
+      description: Publish a webhook message
+      parameters:
+      - description: webhook UUID
+        in: path
+        name: uuid
+        required: true
+        type: string
+      - description: Publish message
+        in: body
+        name: message
+        required: true
+        schema:
+          items:
+            type: integer
+          type: array
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+      tags:
+      - /api/v1/webhook
+securityDefinitions:
+  ClientAuthorization:
+    description: Bearer token for client api
+    in: header
+    name: Authorization
+    type: apiKey
+swagger: "2.0"

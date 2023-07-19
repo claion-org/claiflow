@@ -1,0 +1,8 @@
+enigma:
+  blockMethod: none
+  blockSize: 0
+  blockKey:
+  cipherMode: none
+  cipherSalt: null
+  padding: none
+  strconv: plain

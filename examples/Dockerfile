@@ -1,0 +1,18 @@
+
+FROM alpine:latest
+LABEL version=0.1.0
+
+ARG EXAMPLE_DIR_NAME
+
+RUN apk update && apk add --no-cache bash dbus
+
+WORKDIR /
+
+COPY ./${EXAMPLE_DIR_NAME}/${EXAMPLE_DIR_NAME} /
+
+ENV EXAMPLE_NAME=${EXAMPLE_DIR_NAME}
+ENV CLAIFLOW_SERVER_URL=""
+ENV CLAIFLOW_CLUSTER_UUID=""
+ENV CLAIFLOW_TOKEN=""
+
+ENTRYPOINT ["/bin/bash", "-c", "/${EXAMPLE_NAME} --server=${CLAIFLOW_SERVER_URL} --clusteruuid=${CLAIFLOW_CLUSTER_UUID} --token=${CLAIFLOW_TOKEN}" ]

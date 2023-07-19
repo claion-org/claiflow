@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: claiflow-client
+  namespace: claiflowclient
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      claiflow: client
+  strategy:
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        claiflow: client
+    spec:
+      serviceAccountName: claiflowclient-controller
+      containers:
+        - name: claiflow-client
+          image: claiflow-client:multistep_features # change to your docker iamge
+          # imagePullPolicy: Never # enable, if your docker image is in local
+          env:
+            - name: CLAIFLOW_SERVER_URL
+              valueFrom:
+                configMapKeyRef:
+                  name: claiflowclient-configmap
+                  key: server
+            - name: CLAIFLOW_CLUSTER_UUID
+              valueFrom:
+                configMapKeyRef:
+                  name: claiflowclient-configmap
+                  key: clusteruuid
+            - name: CLAIFLOW_TOKEN
+              valueFrom:
+                configMapKeyRef:
+                  name: claiflowclient-configmap
+                  key: token

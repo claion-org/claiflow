@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package pkg.server.api.client;
+option go_package = "github.com/claion-org/claiflow/pkg/server/api/client";
+
+import "pkg/server/api/client/auth.proto";
+import "pkg/server/api/client/service_polling.proto";
+import "pkg/server/api/client/update_service.proto";
+
+service ClientService {
+    rpc Auth_v1(AuthRequest_v1) returns (AuthResponse_v1) {}
+    rpc ServicePolling_v1(ServicePollingRequest_v1) returns (ServicePollingResponse_v1) {}
+    rpc UpdateServiceStatus_v1(UpdateServiceStatusRequest_v1) returns (UpdateServiceStatusResponse_v1) {}
+}

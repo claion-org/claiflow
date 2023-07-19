@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: claiflow-deployment
+  namespace: claiflow
+spec:
+  selector:
+    matchLabels:
+      claiflow: claiflow-server
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        claiflow: claiflow-server
+    spec:
+      volumes:
+        - name: config-application
+          configMap:
+            name: claiflow-config-application
+        - name: config-enigma
+          configMap:
+            name: claiflow-config-enigma
+        - name: config-database
+          secret:
+            secretName: claiflow-config-database
+      containers:
+        - name: claiflow
+          image: DOCKER_IMAGE_URL
+          imagePullPolicy: Always
+          args: ["/app/conf/application.yaml", "/app/conf/enigma.yaml", "/app/conf/database.yaml"]
+          volumeMounts:
+            - name: config-application
+              mountPath: /app/conf/application.yaml
+              subPath: application.yaml
+            - name: config-enigma
+              mountPath: /app/conf/enigma.yaml
+              subPath: enigma.yaml
+            - name: config-database
+              mountPath: /app/conf/database.yaml
+              subPath: database.yaml
+          ports:
+            - containerPort: 8099
+            - containerPort: 18099

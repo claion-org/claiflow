@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package pkg.server.api.client;
+option go_package = "github.com/claion-org/claiflow/pkg/server/api/client";
+
+message AuthRequest_v1 {
+    string clusterUuid = 1;
+    string assertion = 2;
+    string clientVersion = 3;
+    string clientLibVersion = 4;
+}
+
+message AuthResponse_v1 {
+    string token = 1;
+}
+

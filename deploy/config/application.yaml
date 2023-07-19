@@ -1,0 +1,19 @@
+appName: claiflow
+
+http:
+  port: 8099
+  tls:
+
+  cors:
+
+grpc:
+  port: 18099
+  tls:
+
+migrate:
+  source: migrations/mysql
+
+logger:
+  verbose: 1
+  disableCaller: true
+  disableStacktrace: true

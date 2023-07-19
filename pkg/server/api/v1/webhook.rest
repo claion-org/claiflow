@@ -1,0 +1,57 @@
+@protover = HTTP/1.1
+@protocol = http
+@hostname = localhost
+@port     = 8099
+@url      = {{protocol}}://{{hostname}}:{{port}}/api/v1
+
+@date = {{$datetime "YYYY-MM-DDThh:mm:ss"}}Z
+
+# @name createWebhook
+@webhook_uuid = 00000000000000000000000000000000
+@webhook_name = test webhook name
+@webhook_summary = test data
+@webhook_url = http://localhost/opaque
+@webhook_method = POST
+@webhook_timeout = 10s
+@webhook_conditionValidator = jq
+@webhook_conditionFilter = .foo 
+
+POST {{url}}/webhook {{protover}}
+Content-Type: application/json
+
+{
+  "uuid": "{{ webhook_uuid }}",
+  "name": "{{ webhook_name }}",
+  "summary": "{{ webhook_summary }}",
+  "url": "{{ webhook_url }}",
+  "method": "{{ webhook_method }}",
+  "timeout": "{{ webhook_timeout }}",
+  "conditionValidator": "{{ webhook_conditionValidator }}",
+  "conditionFilter": "{{ webhook_conditionFilter }}"
+}
+
+###
+
+
+# @name getWebhook
+GET {{url}}/webhook/{{webhook_uuid}} {{protover}}
+
+###
+
+# @name getWebhook
+POST {{url}}/webhook/{{webhook_uuid}}/publish {{protover}}
+Content-Type: application/json
+
+{
+  "foo": "true"
+}
+
+###
+
+
+
+# @name deleteWebhook
+DELETE {{url}}/webhook/{{webhook_uuid}} {{protover}}
+
+###
+

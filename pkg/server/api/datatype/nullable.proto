@@ -1,0 +1,57 @@
+syntax = "proto3";
+
+package pkg.server.api.datatype;
+option go_package = "github.com/claion-org/claiflow/pkg/server/api/datatype";
+
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/duration.proto";
+
+message NullString {
+    string string = 1;
+    bool valid = 2;
+}
+
+message NullBool {
+    bool bool = 1;
+    bool valid = 2;
+}
+
+message NullTimestamp {
+    google.protobuf.Timestamp timestamp = 1;
+    bool valid = 2;
+}
+
+message NullDuration {
+    google.protobuf.Duration duration = 1;
+    bool valid = 2;
+}
+
+message NullInt32 {
+    int32 int32 = 1;
+    bool valid = 2;
+}
+
+message NullInt64 {
+    int64 int64 = 1;
+    bool valid = 2;
+}
+
+message NullUint32 {
+    uint32 uint32 = 1;
+    bool valid = 2;
+}
+
+message NullUint64 {
+    uint64 uint64 = 1;
+    bool valid = 2;
+}
+
+message NullFloat32 {
+    float float32 = 1;
+    bool valid = 2;
+}
+
+message NullFloat64 {
+    double float64 = 1;
+    bool valid = 2;
+}

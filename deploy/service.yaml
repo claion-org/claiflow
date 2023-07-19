@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: claiflow-service
+  namespace: claiflow
+spec:
+  type: LoadBalancer
+  ports:
+    - name: http
+      port: 8099
+      targetPort: 8099
+    - name: grpc
+      port: 18099
+      targetPort: 18099
+  selector:
+    claiflow: claiflow-server

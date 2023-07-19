@@ -1,0 +1,11 @@
+database:
+  type: mysql
+  protocol: tcp
+  host: mariadb-claiflow.claiflow.svc.cluster.local
+  port: 3306
+  dbname: claiflow
+  username: claiflow
+  password: claiflow
+  maxOpenConns: 15
+  maxIdleConns: 5
+  connMaxLifetime: 1

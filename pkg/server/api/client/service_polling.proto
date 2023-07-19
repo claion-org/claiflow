@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+package pkg.server.api.client;
+option go_package = "github.com/claion-org/claiflow/pkg/server/api/client";
+
+// import "google/protobuf/any.proto";
+import "google/protobuf/timestamp.proto";
+import "pkg/server/api/datatype/nullable.proto";
+
+message ServicePollingRequest_v1 {
+    int32 limit = 1;
+}
+
+message ServicePollingResponse_v1 {
+    repeated Data datas = 1;
+
+    message Data {
+        google.protobuf.Timestamp partitionDate = 1;
+        string clusterUuid = 2;
+        string uuid = 3;
+        string name = 4;
+        datatype.NullString summary = 5;
+        string templateUuid = 11;
+        string Flow = 12;
+        bytes inputs = 13;
+        int32 stepMax = 14;
+        datatype.NullString subscribedChannel = 21;
+        int32 priority = 22;
+        google.protobuf.Timestamp created = 6;
+    }
+}
+
