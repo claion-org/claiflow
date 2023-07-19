@@ -1,4 +1,6 @@
-# claiflow
+<img src='assets/claiflow_logo.png' alt='logo' height='100'>
+
+---
 
 ## What is claiflow
 
@@ -84,13 +86,15 @@ Manipulate ***claiflow*** resources using the REST API for Kubernetes automation
 
     <!-- server url, cluster uuid, cluster token 값을 확인하세요. -->
     1. Check the server url, cluster uuid, and cluster token values.
+
         ```yaml
         server grpc url: localhost:18099
         cluster uuid:    00000000000000000000000000000000
         cluster token:   CLIENT_AUTHENTICATION_TOKEN
         ```
     <!-- 위에서 확인한 값들을 ***claiflow-client*** 실행 시 적용해 주세요. 자세한 사항은 [examples/README.md](examples/README.md) 파일을 통해 확인하세요. -->
-    2. Apply the values you found above when running claiflow-client. For more information, see the [examples/README.md](examples/README.md).
+    1. Apply the values you found above when running claiflow-client. For more information, see the [examples/README.md](examples/README.md).
+
         ```sh
         # move examples directory
         cd examples
@@ -172,12 +176,12 @@ Manipulate ***claiflow*** resources using the REST API for Kubernetes automation
 
     <!-- 각 라이브러리들의 버전 호환성은 아래에서 찾을 수 있습니다. -->
     Version compatibility for each library can be found below.
-    * [kubernetes/client-go](https://github.com/kubernetes/client-go#compatibility-matrix)
-    * [helm](https://helm.sh/docs/topics/version_skew/)
-    * [prometheus-operator](https://github.com/prometheus-operator/prometheus-operator/blob/main/Documentation/compatibility.md)
+    - [kubernetes/client-go](https://github.com/kubernetes/client-go#compatibility-matrix)
+    - [helm](https://helm.sh/docs/topics/version_skew/)
+    - [prometheus-operator](https://github.com/prometheus-operator/prometheus-operator/blob/main/Documentation/compatibility.md)
 
     <!-- 현재 클라이언트는 다음 버전들을 사용하고 있습니다. -->
     Currently, ***claiflow-client*** are using the following versions
-    * kubernetes/client-go: v0.26.0
-    * helm: v3.11.1
-    * prometheus-operator: v0.55.0
+    - kubernetes/client-go: v0.26.0
+    - helm: v3.11.1
+    - prometheus-operator: v0.55.0
